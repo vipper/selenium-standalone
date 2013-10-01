@@ -17,18 +17,18 @@ function setup(cb) {
 }
 
 function download(cb) {
-  async.parallel([
+  async.series([
+    installSelenium.bind(null, conf.selenium.path, conf.selenium.v),
     installChromeDr.bind(null, conf.chromeDr.path, conf.chromeDr.v),
-    installIExploreDr.bind(null, conf.iexploreDr.path, conf.iexploreDr.v),
-    installSelenium.bind(null, conf.selenium.path, conf.selenium.v)
-
-  ], cb)
+    installIExploreDr.bind(null, conf.iexploreDr.path, conf.iexploreDr.v)
+  ], cb);
 }
 
 function end(err) {
-  if (err) {
-    new Error(err);
-  }
+  console.log(err);
+  //if (err) {
+  //  new Error(err);
+  //}
 }
 
 function installSelenium(to, version, cb) {
@@ -95,7 +95,8 @@ function installIExploreDr(to, version, cb){
 
   downloadAndExtractZip(dl, to, function(err) {
     if (err) {
-      return cb(err);
+      console.log(err);
+      //return cb(err);
     }
   });
 
