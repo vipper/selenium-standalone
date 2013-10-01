@@ -27,7 +27,7 @@ function download(cb) {
 
 function end(err) {
   if (err) {
-    throw err
+    new Error(err);
   }
 }
 
@@ -87,10 +87,10 @@ function installIExploreDr(to, version, cb){
   var platform = getIExploreDriverPlatform();
 
   if(platform == null) {
-    return;
+    //return;
   }
 
-  var dl = util.format(iexploredriverUrl, platform, version);
+  var dl = util.format(iexploredriverUrl, 'Win32', version);
   console.log('Downloading ' + dl);
 
   downloadAndExtractZip(dl, to, function(err) {
