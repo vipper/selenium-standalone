@@ -5,16 +5,16 @@ var version = '2.35.0';
 
 module.exports = {
   selenium: {
-    path: path.join(__dirname, '.selenium', version, 'server.jar'),
+    path: path.join(__dirname, 'selenium', version, 'server.jar'),
     v: version
   },
   chromeDr: {
-    path: path.join(__dirname, '.selenium', version, 'chromedriver'),
+    path: path.join(__dirname, 'selenium', version, 'chromedriver'),
     // see https://code.google.com/p/chromedriver/downloads/list
     v: '2.3'
   },
   iexploreDr: {
-    path: path.join(__dirname, '.selenium', version, 'iexploredriver.exe'),
+    path: path.join(__dirname, 'selenium', version, 'iexploredriver.exe'),
     // see https://code.google.com/p/selenium/downloads/list
     v: '2.35.3'
   }
