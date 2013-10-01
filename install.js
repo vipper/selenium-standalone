@@ -17,7 +17,7 @@ function setup(cb) {
 }
 
 function download(cb) {
-  async.parallel([
+  async.series([
     installSelenium.bind(null, conf.selenium.path, conf.selenium.v),
     installChromeDr.bind(null, conf.chromeDr.path, conf.chromeDr.v),
     installIExploreDr.bind(null, conf.iexploreDr.path, conf.iexploreDr.v)
